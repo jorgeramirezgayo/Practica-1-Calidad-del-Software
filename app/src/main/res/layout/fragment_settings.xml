@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/fondo"
+    android:orientation="vertical"
+    android:textAlignment="center">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ajustes"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Idioma"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_margin="10pt"/>
+
+        <RadioGroup
+            android:id="@+id/grupoIdioma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:textStyle="italic">
+
+            <RadioButton
+                android:id="@+id/Español"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Español" />
+
+            <RadioButton
+                android:id="@+id/Ingles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Inglés" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tema de pantalla"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_margin="10pt"/>
+
+    <RadioGroup
+        android:id="@+id/grupoModoOscuro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:textStyle="italic">
+
+        <RadioButton
+            android:id="@+id/rbModoOscuro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo Oscuro" />
+
+        <RadioButton
+            android:id="@+id/rbModoClaro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo Claro" />
+    </RadioGroup>
+
+</LinearLayout>

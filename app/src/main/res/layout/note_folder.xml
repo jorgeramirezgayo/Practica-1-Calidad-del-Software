@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_marginStart="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/btnNote"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:backgroundTint="#E49859"
+            android:onClick="onCancel"
+            android:text="Nota" />
+
+        <Button
+            android:id="@+id/btnFolder"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:backgroundTint="#73BDDF"
+            android:onClick="onCancel"
+            android:text="Carpeta" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:onClick="onCancel"
+            android:text="Cancelar" />
+
+    </LinearLayout>
+</LinearLayout>
+

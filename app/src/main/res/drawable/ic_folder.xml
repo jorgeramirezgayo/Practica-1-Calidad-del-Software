@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/crema" />
+        </shape>
+    </item>
+
+    <!-- Nombre de la carpeta (texto centrado) -->
+    <item
+        android:gravity="center"
+        >
+        <bitmap
+            android:tint="@android:color/black"
+            android:src="@drawable/folde"
+            android:gravity="center"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            />
+    </item>
+
+</layer-list>

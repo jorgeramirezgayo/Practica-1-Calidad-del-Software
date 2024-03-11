@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EasyNotes" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.EasyNotes" parent="Base.Theme.EasyNotes" />
+    <style name="barra">
+        <item name="android:background">"#EA9999"</item>
+
+    </style>
+    <style name="fondo">
+        <item name="android:background">"#FFC7B0"</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="inicio">
+        <item name="android:background">"#B0FFED"</item>
+    </style>
+    <style name="inicioT">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="texto">
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
