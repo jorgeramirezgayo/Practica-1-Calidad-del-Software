@@ -234,4 +234,8 @@ class ViewNoteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun onAccept(view: View) {
+        println("Prueba");
+    }
 }
