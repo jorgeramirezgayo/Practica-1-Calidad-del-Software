@@ -15,6 +15,9 @@ jobs:
       - restore_cache:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
       - run:
+          name: Change gradlew permissions
+          command: chmod +x ./gradlew
+      - run:
           command: ./gradlew check
       - store_test_results:
           path: build/test-results
