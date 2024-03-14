@@ -236,6 +236,7 @@ class ViewNoteFragment : Fragment() {
     }
 
     fun onAccept(view: View) {
-        println("Prueba");
+        // Aquí puedes colocar la lógica para manejar el clic en el botón Aceptar
+        // Por ejemplo, obtener los datos del formulario, guardar la nota, etc.
     }
 }
