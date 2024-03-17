@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Cancelar"
-            android:onClick="onCancel"/>
+        />
 
         <Button
             android:id="@+id/btnAccept"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Aceptar"
-            android:onClick="onAccept"/>
+        />
     </LinearLayout>
 </LinearLayout>
 
