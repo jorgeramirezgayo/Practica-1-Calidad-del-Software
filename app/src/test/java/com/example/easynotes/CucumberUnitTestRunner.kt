@@ -13,4 +13,4 @@ import org.junit.runner.RunWith
 @RunWith(
     Cucumber::class
 )
-class CucumberUnitTestsRunner : CucumberAndroidJUnitRunner()
+class CucumberUnitTestRunner : CucumberAndroidJUnitRunner()
