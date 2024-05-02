@@ -80,17 +80,14 @@ jobs:
       - run:
           name: deploy
           command: '#e.g. ./deploy.sh'
+
 workflows:
-  main: 
+  main:
     jobs:
       - first-steps-and-build-apk
-      - test-java
+      - test-java:
          requires:
            - first-steps-and-build-apk
-      - calabash-test:
+      - cabalash-test:
          requires:
            - first-steps-and-build-apk
-
-    # - deploy:
-    #     requires:
-    #       - test-java
