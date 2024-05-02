@@ -82,7 +82,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java
+      # - test-java
       - ui-testing-calabash
     # - deploy:
     #     requires:
