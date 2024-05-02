@@ -81,7 +81,9 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java
+      - test-java:
+        requires:
+           - first-steps-and-build-apk
       - ui-testing-calabash:
          requires:
            - first-steps-and-build-apk
