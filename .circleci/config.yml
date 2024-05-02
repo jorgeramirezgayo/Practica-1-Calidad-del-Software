@@ -28,7 +28,7 @@ jobs:
       - store_artifacts:
           path: build/reports
 
-  calabash-test:
+  test-calabash:
     executor:
       name: android/android-machine
       resource-class: large
@@ -80,14 +80,13 @@ jobs:
       - run:
           name: deploy
           command: '#e.g. ./deploy.sh'
-
 workflows:
-  main:
+  build-and-test:
     jobs:
-      - first-steps-and-build-apk
-      - test-java:
+      - test-java
+      - test-calabash:
          requires:
            - first-steps-and-build-apk
-      - cabalash-test:
-         requires:
-           - first-steps-and-build-apk
+    # - deploy:
+    #     requires:
+    #       - test-java
