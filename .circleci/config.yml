@@ -27,17 +27,11 @@ jobs:
             - ~/.gradle/caches
       - store_artifacts:
           path: build/reports
-  
-  unit-testing:
-      docker:
-        - image: cimg/android:2024.01
-      resource_class: large
-      steps:
-        - attach_workspace:
+      - attach_workspace:
           at: .
-        - run: 
-            name: Run Unit Tests (Cucumber and JUnit)
-            command: -/gradlew testDebug --continue --info --rerun tasks
+      - run: 
+          name: Run Unit Tests (Cucumber and JUnit)
+          command: -/gradlew testDebug --continue --info --rerun tasks
 
 
 
