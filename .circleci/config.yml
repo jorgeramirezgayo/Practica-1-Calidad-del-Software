@@ -31,7 +31,7 @@ jobs:
           at: .
       - run: 
           name: Run Unit Tests (Cucumber and JUnit)
-          command: -/gradlew testDebug --continue --info --rerun tasks
+          command: ./gradlew testDebug --continue --info --rerun tasks
 
 
 
