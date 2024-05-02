@@ -27,6 +27,48 @@ jobs:
             - ~/.gradle/caches
       - store_artifacts:
           path: build/reports
+  ui-testing-calabash:
+    executor:
+      name: android/android-machine
+      resource-class: large
+      tag: 2021.10.1
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install Ruby Gems for Cucumber 3 and Calabash Android
+          command: |
+            rvm use 2.7.0
+            echo y; gem install cucumber -v 3.2.0
+            gem install calabash-android
+      - run:
+          name: Create AVD and accept all Android SDK licenses
+          command: |
+            yes | sdkmanager --licenses || true
+            sdkmanager "system-images;android-28;google_apis;x86_64"
+            echo "no" | avdmanager --verbose create avd -n test -k "system-images;android-28;google_apis;x86_64"
+      - run:
+          name: Execute "Resign" operation (Calabash)
+          command: |
+            keytool -genkey -alias androiddebugkey -keystore ~/.android/debug.keystore -storetype PKCS12 -keyalg RSA -storepass android -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"
+            rvm use 2.7.0
+            cd ~/project/app/src/androidTest/calabashTests
+            calabash-android resign ~/project/app/build/outputs/apk/debug/app-debug.apk
+      - android/start-emulator:
+          avd-name: test
+          no-window: true
+          post-emulator-launch-assemble-command: ''
+          restore-gradle-cache-post-emulator-launch: false
+      - android/wait-for-emulator
+      - run:
+          name: Install resigned app into Android Emulator
+          command: adb install -r ~/project/app/build/outputs/apk/debug/app-debug.apk
+      - run:
+          name: Execute Calabash Android tests
+          command: |
+            rvm use 2.7.0
+            cd ~/project/app/src/androidTest/calabashTests
+            calabash-android run ~/project/app/build/outputs/apk/debug/app-debug.apk
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -40,6 +82,9 @@ workflows:
   build-and-test:
     jobs:
       - test-java
+      - ui-testing-calabash:
+         requires:
+           - first-steps-and-build-apk
     # - deploy:
     #     requires:
     #       - test-java
