@@ -83,7 +83,7 @@ jobs:
 workflows:
   main: 
     jobs:
-    - first-steps-and-build-apk
+      - first-steps-and-build-apk
       - test-java
          requires:
            - first-steps-and-build-apk
