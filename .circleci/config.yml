@@ -69,7 +69,7 @@ jobs:
             rvm use 2.7.0
             cd ~/project/app/src/androidTest/calabashTests
             calabash-android run ~/project/app/build/outputs/apk/debug/app-debug.apk
-            
+
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -82,12 +82,8 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java:
-        requires:
-           - first-steps-and-build-apk
-      - ui-testing-calabash:
-         requires:
-           - first-steps-and-build-apk
+      - test-java
+      - ui-testing-calabash
     # - deploy:
     #     requires:
     #       - test-java
