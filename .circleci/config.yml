@@ -27,8 +27,8 @@ jobs:
             - ~/.gradle/caches
       - store_artifacts:
           path: build/reports
-  test-java:
-    unit-testing:
+  
+  unit-testing:
       docker:
         - image: cimg/android:2024.01
       resource_class: large
