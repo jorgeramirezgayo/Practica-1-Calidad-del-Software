@@ -75,7 +75,10 @@ jobs:
             calabash-android resign ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
       - run:
           name: Start Emulator
-          command: emulator -avd test -gpu host
+          command: |
+            sudo apt install cpu-checker
+            kvm-ok
+            emulator -avd test -gpu host
 
       - run:
           name: Install resigned app into Android Emulator
