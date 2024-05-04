@@ -57,17 +57,17 @@ jobs:
           name: Execute Resign with calabash-android
           command: |
             keytool -genkey -alias androiddebugkey -keystore ~/.android/debug.keystore -storetype PKCS12 -keyalg RSA -storepass android -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"
-            calabash-android resign ~/project/app/build/outputs/apk/debug/app-debug.apk
+            calabash-android resign ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
       - run:
           name: Start Emulator
           command: emulator -avd test
       - run:
           name: Install resigned app into Android Emulator
-          command: adb install -r ~/project/app/build/outputs/apk/debug/app-debug.apk
+          command: adb install -r  ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
       - run:
           name: Execute Calabash Android tests with calabash-android
           command: |
-            calabash-android run ~/project/app/build/outputs/apk/debug/app-debug.apk ~/project/app/src/androidTest/calabashTest/features
+            calabash-android run  ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk ~/project/app/src/androidTest/calabashTest/features
             
   deploy:
     # This is an example deploy job, not actually used by the workflow
