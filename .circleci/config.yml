@@ -39,8 +39,8 @@ jobs:
       - run:
           name: Install Ruby Gems for Cucumber 3 and Calabash Android
           command: |
-            rvm use 2.7.0
-            echo y; gem install cucumber -v 3.2.0
+            rvm use 3.2.4
+            gem install cucumber -v 3.2.0
             gem install calabash-android
       - run:
           name: Create AVD and accept all Android SDK licenses
@@ -55,12 +55,9 @@ jobs:
             rvm use 2.7.0
             cd ~/project/app/src/androidTest/calabashTests
             calabash-android resign ~/project/app/build/outputs/apk/debug/app-debug.apk
-      - android/start-emulator:
-          avd-name: test
-          no-window: true
-          post-emulator-launch-assemble-command: ''
-          restore-gradle-cache-post-emulator-launch: false
-      - android/wait-for-emulator
+      - run:
+          name: Start Emulator
+          command: emulator -avd test
       - run:
           name: Install resigned app into Android Emulator
           command: adb install -r ~/project/app/build/outputs/apk/debug/app-debug.apk
