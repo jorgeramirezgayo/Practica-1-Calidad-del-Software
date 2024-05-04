@@ -39,6 +39,7 @@ jobs:
     docker:
       - image: cimg/android:2024.01
     steps:
+      - checkout 
       - attach_workspace:
           at: .
       - run:
@@ -53,6 +54,18 @@ jobs:
             yes | sdkmanager --licenses || true
             sdkmanager "system-images;android-28;google_apis;x86_64"
             echo "no" | avdmanager --verbose create avd -n test -k "system-images;android-28;google_apis;x86_64"
+      - run:
+          name: Calculate cache key
+          command: |-
+            find . -name 'pom.xml' -o -name 'gradlew*' -o -name '*.gradle*' | \
+                    sort | xargs cat > /tmp/CIRCLECI_CACHE_KEY
+      - restore_cache:
+          key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+      - run:
+          name: Change gradlew permissions
+          command: chmod +x ./gradlew
+      - run:
+          command: ./gradlew check
       - run:
           name: Execute Resign with calabash-android
           command: |
