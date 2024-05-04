@@ -30,7 +30,7 @@ jobs:
 
   test-calabash:
     executor:
-      name: android/android-machine
+      name: android-machine
       resource-class: large
       tag: 2021.10.1
     steps:
