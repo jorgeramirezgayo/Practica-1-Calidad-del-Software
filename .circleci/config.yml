@@ -29,10 +29,8 @@ jobs:
           path: build/reports
 
   test-calabash:
-    executor:
-      name: android-machine
-      resource-class: large
-      tag: 2021.10.1
+    docker:
+      - image: cimg/android:2024.01
     steps:
       - attach_workspace:
           at: .
