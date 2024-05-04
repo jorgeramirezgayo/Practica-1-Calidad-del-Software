@@ -57,6 +57,8 @@ jobs:
           name: Execute Resign with calabash-android
           command: |
             keytool -genkey -alias androiddebugkey -keystore ~/.android/debug.keystore -storetype PKCS12 -keyalg RSA -storepass android -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"
+             chmod +x ./gradlew
+             ./gradlew assembleDebug
             calabash-android resign ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
       - run:
           name: Start Emulator
