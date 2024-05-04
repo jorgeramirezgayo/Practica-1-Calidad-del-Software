@@ -1,6 +1,9 @@
+package com.example.easynotes
+
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.example.easynotes.Model.NoteLoader
+import com.example.easynotes.Model.NoteModel
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Before
@@ -19,7 +22,7 @@ class NoteLoaderTest {
     @Test
     fun addNoteTest() {
         // Arrange
-        val note = NoteModel(1, "Título", "Contenido", "path", emptyList())
+        val note = NoteModel("Título", 0, "Contenido", 1, "path", mutableListOf())
 
         // Act
         NoteLoader.addNote(note)
@@ -31,8 +34,8 @@ class NoteLoaderTest {
     @Test
     fun getAllNotesTest() {
         // Arrange
-        val note1 = NoteModel(1, "Título 1", "Contenido 1", "path", emptyList())
-        val note2 = NoteModel(2, "Título 2", "Contenido 2", "path", emptyList())
+        val note1 = NoteModel("Título 1", 1, "Contenido 1", 1, "path", mutableListOf())
+        val note2 = NoteModel("Título 2", 2, "Contenido 2", 2, "path", mutableListOf())
         NoteLoader.addNote(note1)
         NoteLoader.addNote(note2)
 
@@ -48,9 +51,9 @@ class NoteLoaderTest {
     @Test
     fun editNoteTest() {
         // Arrange
-        val originalNote = NoteModel(1, "Título", "Contenido", "path", emptyList())
+        val originalNote = NoteModel("Título", 1, "Contenido", 1, "path", mutableListOf())
         NoteLoader.addNote(originalNote)
-        val editedNote = NoteModel(1, "Título Editado", "Contenido Editado", "path", emptyList())
+        val editedNote = NoteModel("Título Editado", 2, "Contenido Editado", 1, "path", mutableListOf())
 
         // Act
         NoteLoader.saveNote(context, editedNote)
@@ -62,7 +65,7 @@ class NoteLoaderTest {
     @Test
     fun deleteNoteTest() {
         // Arrange
-        val note = NoteModel(1, "Título", "Contenido", "path", emptyList())
+        val note = NoteModel("Título", 1, "Contenido", 1, "path", mutableListOf())
         NoteLoader.addNote(note)
 
         // Act
