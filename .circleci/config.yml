@@ -45,7 +45,7 @@ jobs:
           name: Install Ruby Gems for Cucumber 3 and Calabash Android
           command: |
             gem install bundler
-            gem install cucumber
+            sudo gem install cucumber
             gem install calabash-android
       - run:
           name: Create AVD and accept all Android SDK licenses
