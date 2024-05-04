@@ -42,7 +42,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Install Ruby Gems for Cucumber 3 and Calabash Android
+          name: Install Ruby Gems for Cucumber and Calabash Android
           command: |
             gem install bundler
             sudo gem install cucumber
@@ -54,12 +54,9 @@ jobs:
             sdkmanager "system-images;android-28;google_apis;x86_64"
             echo "no" | avdmanager --verbose create avd -n test -k "system-images;android-28;google_apis;x86_64"
       - run:
-          name: Execute "Resign" operation (Calabash)
+          name: Execute Resign with calabash-android
           command: |
             keytool -genkey -alias androiddebugkey -keystore ~/.android/debug.keystore -storetype PKCS12 -keyalg RSA -storepass android -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"
-            pwd
-            ls
-            cd ~/app/src/androidTest/calabashTest/features
             calabash-android resign ~/project/app/build/outputs/apk/debug/app-debug.apk
       - run:
           name: Start Emulator
@@ -68,10 +65,9 @@ jobs:
           name: Install resigned app into Android Emulator
           command: adb install -r ~/app/build/outputs/apk/debug/app-debug.apk
       - run:
-          name: Execute Calabash Android tests
+          name: Execute Calabash Android tests with calabash-android
           command: |
-            cd ~/project/app/src/androidTest/calabashTest
-            calabash-android run ~/project/app/build/outputs/apk/debug/app-debug.apk
+            calabash-android run ~/project/app/build/outputs/apk/debug/app-debug.apk ~/project/app/src/androidTest/calabashTest/features
             
   deploy:
     # This is an example deploy job, not actually used by the workflow
