@@ -3,4 +3,4 @@
 /build/kotlin
 /build/reports
 /build/test-results
-tmp
+/build/tmp
