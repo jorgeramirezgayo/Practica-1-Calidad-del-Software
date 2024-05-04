@@ -58,10 +58,8 @@ jobs:
           command: |
             keytool -genkey -alias androiddebugkey -keystore ~/.android/debug.keystore -storetype PKCS12 -keyalg RSA -storepass android -keysize 2048 -dname "CN=Android Debug,O=Android,C=US"
             pwd
-            ls
-            ll
             dir
-            calabash-android resign /app/build/outputs/apk/debug/app-debug.apk
+            calabash-android resign /app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk 
       - run:
           name: Start Emulator
           command: emulator -avd test
