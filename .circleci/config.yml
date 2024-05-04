@@ -44,8 +44,7 @@ jobs:
       - run:
           name: Install Ruby Gems for Cucumber 3 and Calabash Android
           command: |
-            rvm use 2.7.0
-            echo y
+            gem install bundler
             gem install cucumber
             gem install calabash-android
       - run:
