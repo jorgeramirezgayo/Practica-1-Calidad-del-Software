@@ -5,7 +5,11 @@ plugins {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    // Otras dependencias
+    implementation("org.jetbrains.kotlin:kotlin-stdlib")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }
 
 tasks.test {
