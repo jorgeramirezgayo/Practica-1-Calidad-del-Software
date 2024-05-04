@@ -1,7 +1,6 @@
-package com.example.easynotes
-
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import com.example.easynotes.Model.NoteLoader
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Before
