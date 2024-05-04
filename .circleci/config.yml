@@ -75,7 +75,7 @@ jobs:
             calabash-android resign ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
       - run:
           name: Start Emulator
-          command: emulator -avd test -no-window -post-emulator-launch-assemble-command '' -restore-gradle-cache-post-emulator-launch false
+          command: emulator -avd test -no-window 
 
       - run:
           name: Install resigned app into Android Emulator
