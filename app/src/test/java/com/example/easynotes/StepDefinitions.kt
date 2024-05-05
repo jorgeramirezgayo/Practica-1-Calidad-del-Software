@@ -21,14 +21,14 @@ class StepDefinitions {
     private lateinit var note: NoteModel
     private lateinit var note2: NoteModel
     private lateinit var allNotes: Map<Int,NoteModel>
-//    private lateinit var editedNote: NoteModel
+    private lateinit var editedNote: NoteModel
 //    private lateinit var context: Context
 
     @Before
     fun setUp() {
         note = NoteModel(title, color, text, id, relativePath, tags)
         note2 = NoteModel("", 0, "", 0, "", tags)
-//        editedNote = NoteModel("", 0, "", 0, "", tags)
+        editedNote = NoteModel("", 0, "", 0, "", tags)
 
     }
 
@@ -94,26 +94,29 @@ class StepDefinitions {
     }
 
 
-//    @Given("an edited note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and an empty list of tags")
-//    fun certainEditedNote(title: String, color: Int,  text: String, id:Int, relativePath:String) {
-//        aNoteWDetails(title, color, text, id, relativePath)
-//        addNote()
-//        val editedNote = NoteModel("Título Editado", 2, "Contenido Editado", 1, "path", mutableListOf())
-//        this.editedNote = editedNote
-//    }
-//
-//    @When("the note is saved")
-//    fun savedNote() {
+    @Given("an edited note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and an empty list of tags")
+    fun certainEditedNote(title: String, color: Int,  text: String, id:Int, relativePath:String) {
+        aNoteWDetails(title, color, text, id, relativePath)
+        addNote()
+        val editedNote = NoteModel("Título Editado", 2, "Contenido Editado", 1, "path", mutableListOf())
+        this.editedNote = editedNote
+    }
+
+    @When("the note is saved")
+    fun savedNote() {
+        deleteNote()
+        NoteLoader.addNote(this.editedNote)
 //        NoteLoader.setContext(ApplicationProvider.getApplicationContext())
 //        NoteLoader.saveNote(this.context, this.editedNote)
-//
-//
-//    }
-//
-//    @Then("the retrieved note with id {int} should have changed")
-//    fun assertEditedNote(id: Int){
-//        assertEquals(this.editedNote, NoteLoader.getNote(this.id))
-//    }
+
+
+
+    }
+
+    @Then("the retrieved note with id {int} should have changed")
+    fun assertEditedNote(id: Int){
+        assertEquals(this.editedNote, NoteLoader.getNote(this.id))
+    }
 
 
 
