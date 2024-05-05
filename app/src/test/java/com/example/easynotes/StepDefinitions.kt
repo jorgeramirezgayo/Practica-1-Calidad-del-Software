@@ -35,8 +35,8 @@ class StepDefinitions {
         NoteLoader.addNote(this.note)
     }
 
-    @Then("the note with id {int} should be added successfully")
-    fun noteSuccessfullyAdded(id: Int) {
+    @Then("the note with id {int} should be retrieved successfully")
+    fun noteRetrieved(id: Int) {
         val addedNote = NoteLoader.getNote(this.id)
         assertEquals(this.note, addedNote)
     }
