@@ -1,5 +1,7 @@
 package com.example.easynotes
 
+//import android.content.Context
+//import androidx.test.core.app.ApplicationProvider
 import com.example.easynotes.Model.NoteLoader
 import com.example.easynotes.Model.NoteModel
 import io.cucumber.java.Before
@@ -15,12 +17,16 @@ class StepDefinitions {
     private var text: String = "Contenido"
     private var id: Int = 1
     private var relativePath: String = "path"
-    private var tags: MutableList<String> =mutableListOf()
-    private lateinit var note: NoteModel;
+    private var tags: MutableList<String> = mutableListOf()
+    private lateinit var note: NoteModel
+    private lateinit var editedNote: NoteModel
+//    private lateinit var context: Context
 
     @Before
     fun setUp() {
         note = NoteModel(title, color, text, id, relativePath, tags)
+        editedNote = NoteModel("", 0, "", 0, "", tags)
+
     }
 
     @Given("a note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and a list of tags")
@@ -40,7 +46,7 @@ class StepDefinitions {
         assertEquals(this.note, addedNote)
     }
 
-    @Given("a note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and an empty list of tags")
+    @Given("an existing note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and an empty list of tags")
     fun certainAlreadyAddedNote(title: String, color: Int,  text: String, id:Int, relativePath:String) {
         aNoteWDetails(title, color, text, id, relativePath)
         addNote()
@@ -60,4 +66,27 @@ class StepDefinitions {
             assertEquals("${e.message}","Tried to get a non-existing Note. The id provided is not a key.")
         }
     }
+
+//    @Given("an edited note with title {string}, color {int}, text {string}, id {int}, a relative path {string} and an empty list of tags")
+//    fun certainEditedNote(title: String, color: Int,  text: String, id:Int, relativePath:String) {
+//        aNoteWDetails(title, color, text, id, relativePath)
+//        addNote()
+//        val editedNote = NoteModel("Título Editado", 2, "Contenido Editado", 1, "path", mutableListOf())
+//        this.editedNote = editedNote
+//    }
+//
+//    @When("the note is saved")
+//    fun savedNote() {
+//        NoteLoader.setContext(ApplicationProvider.getApplicationContext())
+//        NoteLoader.saveNote(this.context, this.editedNote)
+//
+//
+//    }
+//
+//    @Then("the retrieved note with id {int} should have changed")
+//    fun assertEditedNote(id: Int){
+//        assertEquals(this.editedNote, NoteLoader.getNote(this.id))
+//    }
+
+
 }
