@@ -1,27 +1,19 @@
 require 'calabash-android/calabash_steps'
 
-Given(/^I am in the "([^"]*)" view$/) do |view_name|
-  # Your code to navigate to the "Settings" view
-  # For example:
-  # wait_for_element_exists("* marked:'#{view_name}'")
+Given(/^I am on the "([a-zA-Z-]+)" Screen$/) do |screen_name|
+  wait_for_element_exists("* id:'LayoutAjusteClaro'")
 end
 
-When(/^I press the "([^"]*)" radio button$/) do |radio_button_name|
-  # Your code to tap the specified radio button
-  # For example:
-  # touch("* marked:'#{radio_button_name}'")
+When(/^I touch the "([a-zA-Z]+)" button$/) do |button_name|
+  touch("* id:'rbModoOscuro'")
 end
 
-Then(/^I see the mode go dark$/) do
-  # Your code to verify if the dark mode is enabled
-  # For example:
-  # wait_for_element_exists("* marked:'dark_mode_enabled'")
+Then(/^I should see the "([a-zA-Z-]*)" Screen$/) do |next_screen_name|
+  wait_for_element_exists("* id:'LayoutAjusteClaro'")
 end
 
-Given(/^I am in the "([^"]*)" view$/) do |view_name|
-  # Your code to navigate to the "Edit Note" view
-  # For example:
-  # wait_for_element_exists("* marked:'#{view_name}'")
+And(/^I take a screenshot$/) do
+  screenshot_and_save("app/res/screenshots/darkMode.png")
 end
 
 When(/^I press the "([^"]*)" radio button$/) do |radio_button_name|
