@@ -12,7 +12,9 @@ import android.widget.RadioButton
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
 import android.content.Context
-
+import android.content.res.Configuration
+import android.preference.PreferenceManager
+import java.util.Locale
 
 
 /**
@@ -21,12 +23,37 @@ import android.content.Context
  * create an instance of this fragment.
  */
 class SettingsFragment : Fragment() {
+    private fun changeLanguage(context: Context, lang: String) {
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
 
+        val config = Configuration()
+        config.setLocale(locale)
+
+        val updatedContext = context.createConfigurationContext(config)
+        updatedContext.resources.updateConfiguration(config, updatedContext.resources.displayMetrics)
+
+        val sharedPreferences = context.getSharedPreferences("my_prefs", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putString("lang", lang).apply()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
+
+        // Referencias a los RadioButton
+        val spanish = view.findViewById<RadioButton>(R.id.Español)
+        val english = view.findViewById<RadioButton>(R.id.Ingles)
+
+        // Agrega un listener al RadioGroup para manejar los eventos de los RadioButton
+        val language = view.findViewById<RadioGroup>(R.id.grupoIdioma)
+        language.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.Español -> changeLanguage(requireContext(),"es")
+                R.id.Ingles -> changeLanguage(requireContext(),"en")
+            }
+        }
 
         // Referencias a los RadioButton
         val rbModoOscuro = view.findViewById<RadioButton>(R.id.rbModoOscuro)

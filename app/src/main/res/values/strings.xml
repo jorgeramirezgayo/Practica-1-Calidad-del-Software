@@ -1,11 +1,27 @@
 <resources>
     <string name="app_name">EasyNotes</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="folder_settings">Carpeta</string>
+    <string name="note_settings">Nota</string>
+    <string name="enlang">Inglés</string>
+    <string name="eslang">Español</string>
+    <string name="lang">Idioma</string>
+    <string name="theme">Tema de pantalla</string>
+    <string name="dark">Modo Oscuro</string>
+    <string name="bright">Modo Claro</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="title">Título</string>
+    <string name="data">Introduce los datos</string>
+    <string name="desc">Descripción</string>
+    <string name="grey">Gris</string>
+    <string name="green">Verde</string>
+    <string name="blue">Azul</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">EasyNotes</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="second_fragment_label">Segundo Fragmento</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -44,7 +60,5 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="aceptar">Aceptar</string>
+    <string name="hello_blank_fragment">Hola Fragmento en Blanco</string>
 </resources>

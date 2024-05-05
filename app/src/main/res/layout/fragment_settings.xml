@@ -12,14 +12,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Ajustes"
+            android:text="@string/action_settings"
             android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Idioma"
+            android:text="@string/lang"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_margin="10pt"/>
@@ -36,20 +36,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Español" />
+                android:text="@string/eslang" />
 
             <RadioButton
                 android:id="@+id/Ingles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Inglés" />
+                android:text="@string/enlang" />
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tema de pantalla"
+            android:text="@string/theme"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_margin="10pt"/>
@@ -65,13 +65,13 @@
             android:id="@+id/rbModoOscuro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modo Oscuro" />
+            android:text="@string/dark" />
 
         <RadioButton
             android:id="@+id/rbModoClaro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modo Claro" />
+            android:text="@string/bright" />
     </RadioGroup>
 
 </LinearLayout>

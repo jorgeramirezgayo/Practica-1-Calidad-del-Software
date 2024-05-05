@@ -20,7 +20,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="#E49859"
-            android:text="Nota" />
+            android:text="@string/note_settings" />
 
         <Button
             android:id="@+id/btnFolder"
@@ -29,7 +29,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="#73BDDF"
-            android:text="Carpeta" />
+            android:text="@string/folder_settings" />
 
         <Button
             android:id="@+id/btnCancel"
@@ -37,7 +37,7 @@
             android:layout_height="80dp"
 
             android:layout_weight="1"
-            android:text="Cancelar" />
+            android:text="@string/cancelar" />
 
     </LinearLayout>
 </LinearLayout>

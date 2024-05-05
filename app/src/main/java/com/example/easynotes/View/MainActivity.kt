@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import com.example.easynotes.R
+import com.example.easynotes.View.Fragments.SettingsFragment
 import com.example.easynotes.databinding.ActivityMainBinding
 import com.example.easynotes.databinding.LoadingMainBinding
 
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
         loadingBinding = LoadingMainBinding.inflate(layoutInflater)
         setContentView(loadingBinding.root)
 

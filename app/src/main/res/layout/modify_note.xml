@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Introduce los datos"
+        android:text="@string/data"
         android:textSize="18sp"
         style="@style/inicioT"
         android:gravity="center"/>
@@ -18,7 +18,7 @@
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Título"
+        android:hint="@string/title"
         android:layout_marginTop="8dp"
         android:inputType="textCapSentences"/>
 
@@ -33,19 +33,19 @@
             android:id="@+id/radioRed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gris"/>
+            android:text="@string/grey"/>
 
         <RadioButton
             android:id="@+id/radioGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verde"/>
+            android:text="@string/green"/>
 
         <RadioButton
             android:id="@+id/radioBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Azul"/>
+            android:text="@string/blue"/>
 
     </RadioGroup>
 
@@ -60,7 +60,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Cancelar"
+            android:text="@string/cancelar"
         />
 
         <Button
@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Aceptar"
+            android:text="@string/aceptar"
         />
     </LinearLayout>
 </LinearLayout>
