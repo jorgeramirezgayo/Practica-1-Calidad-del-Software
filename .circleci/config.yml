@@ -27,6 +27,14 @@ jobs:
             - ~/.gradle/caches
       - store_artifacts:
           path: build/reports
+      - attach_workspace:
+          at: .
+      - run: 
+          name: Run Unit Tests (Cucumber and JUnit)
+          command: ./gradlew testDebug --continue --info --rerun tasks
+
+
+
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
