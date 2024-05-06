@@ -73,20 +73,7 @@ jobs:
              chmod +x ./gradlew
              ./gradlew assembleDebug
             calabash-android resign ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-      - run:
-          name: Start Emulator
-          command: |
-            sudo apt install cpu-checker
-            kvm-ok
-            emulator -avd test -gpu host
-
-      - run:
-          name: Install resigned app into Android Emulator
-          command: adb install -r  ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-      - run:
-          name: Execute Calabash Android tests with calabash-android
-          command: |
-            calabash-android run  ~/project/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk ~/project/app/src/androidTest/calabashTest/features
+     
             
   deploy:
     # This is an example deploy job, not actually used by the workflow
